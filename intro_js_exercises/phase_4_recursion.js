@@ -32,3 +32,43 @@ function sumRec(arr) {
 }
 
 console.log(sumRec([1,2,3]));
+
+
+function exponent(base, exp) {
+  if (exp === 0) {
+    return 1;
+  }
+  return base * exponent(base, exp - 1);
+}
+
+console.log(exponent(10,1));
+
+
+function exponent2(base, exp) {
+  if (exp === 0 ) {
+    return 1;
+  }
+  if (exp % 2 === 0) {
+    let result = exponent2(base, exp / 2);
+    return result * result;
+  } else {
+    let result = base * exponent2(base, (exp-1)/ 2);
+    return result * result;
+  }
+}
+
+console.log(exponent(10,3));
+
+function fibonnaci(n) {
+  const result = [];
+  if (n < 3) {
+    return [0, 1].slice(0, n);
+  }
+
+  let fibs = fibonnaci(n - 1);
+  fibs.push(fibs[fibs.length - 2] + fibs[fibs.length - 1]);
+
+  return fibs;
+}
+
+console.log(fibonnaci(7));
